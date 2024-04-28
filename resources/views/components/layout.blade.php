@@ -6,8 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/js/app.js'])
 </head>
+
 <body class="h-full">
 <div class="min-h-full">
     <nav class="bg-gray-800">
@@ -32,11 +33,9 @@
                             <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
                             <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                         @endguest
-
                         @auth
                             <form method="POST" action="/logout">
                                 @csrf
-
                                 <x-form-button>Log Out</x-form-button>
                             </form>
                         @endauth
